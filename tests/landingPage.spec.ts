@@ -27,4 +27,11 @@ test('Landing page main tab', async ({ page }) => {
 
   navigationItemNews().click()
   await expect(page).toHaveURL('https://www.teamgullit.com/news');
+  navigationItemTeam().click();
+  await expect(page).toHaveURL('https://www.teamgullit.com/team');
+  navigationItemFifa23().click();
+  await expect(page).toHaveURL('https://www.teamgullit.com/fifa-23');
+  navigationItemPartners().click();
+  await expect(page).toHaveURL('https://www.teamgullit.com/partners');
+
 });
