@@ -83,3 +83,22 @@ test('News page', async ({ page }) => {
 
   await expect(page.getByRole('heading', { name: 'News articles' })).toHaveText('News articles')
 })
+
+test('Footer', async ({page}) => {
+  await page.goto('https://teamgullit.com/');
+  await expect(page.locator('#partners').getByAltText('Logo of Philips OneBlade')).toBeVisible()
+  await expect(page.locator('#partners').getByAltText('This is the HyperX Logo ')).toBeVisible()
+  await expect(page.locator('#partners').getByAltText('Redbull logo. Two bulls face each other in front of a yellow circle. Below the visual is the wordmark Red Bull. The colors of the bulls and the wordmark is red. ')).toBeVisible()
+  await expect(page.locator('#partners').getByAltText('This is an image of the Omen by HP Logo')).toBeVisible()
+  await expect(page.locator('#partners').getByAltText('Logo of New Balance. Partner of Team Gullit. Activewear and sneakers.')).toBeVisible()
+  await expect(page.locator('#partners').getByAltText('This is the logo of SEIKO Vision. A partner of Team Gullit.')).toBeVisible()
+  await expect(page.locator('#partners').getByAltText('Benq Logo. Purple shape with the wordmark in white letters BenQ in capitals.')).toBeVisible()
+
+  await expect(page.locator('footer').getByRole('link', { name: 'News' })).toBeEnabled()
+  await expect(page.locator('footer').getByRole('link', { name: 'Team' })).toBeEnabled()
+  await expect(page.locator('footer').getByRole('link', { name: 'Fifa 23' })).toBeEnabled()
+  await expect(page.locator('footer').getByRole('link', { name: 'Partners' })).toBeEnabled()
+  await expect(page.locator('footer').getByRole('link', { name: 'Privacy Policy' })).toBeEnabled()
+  await expect(page.locator('footer').getByRole('link', { name: 'Contact' })).toBeEnabled()
+  await expect(page.locator('footer').getByRole('link', { name: 'Press Kit' })).toBeEnabled()
+})
