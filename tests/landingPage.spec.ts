@@ -77,3 +77,9 @@ await expect(page).toHaveURL('https://www.ajax.nl/teams/ajax-esports/');
 await page.goto('https://www.teamgullit.com/static/partners');
 
 })
+
+test('News page', async ({ page }) => {
+  await page.goto('https://teamgullit.com/news');
+
+  await expect(page.getByRole('heading', { name: 'News articles' })).toHaveText('News articles')
+})
