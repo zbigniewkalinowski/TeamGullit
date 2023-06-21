@@ -57,3 +57,23 @@ test('Team page', async ({ page }) => {
 
   await expect(page.getByRole('link', { name: 'Levi de Weerd NL Flag Levi de Weerd TG-LevideWeerd Socialmedia logo icon Socialmedia logo icon Socialmedia logo icon Socialmedia logo icon' }).getByRole('link', { name: 'Socialmedia logo icon' }).first()).toBeEnabled()
 })
+
+
+test('partners page', async ({ page }) => {
+  await page.goto('https://teamgullit.com/');
+
+  function navigationItemPartners() {
+    return page.getByRole('navigation').getByRole('link', { name: 'Partners', exact: true })
+  }
+  navigationItemPartners().click();
+  await expect(page).toHaveTitle('Team Gullit Partners');
+  await expect(page.getByRole('img', { name: 'This is a picture of Levi de Weerd with his FIFA set-up.' })).toBeVisible();
+
+function ajaxPartnerButton() {
+  return page.getByRole('link', { name: 'Ajax Esports logo' })
+}
+ajaxPartnerButton().click();
+await expect(page).toHaveURL('https://www.ajax.nl/teams/ajax-esports/');
+await page.goto('https://www.teamgullit.com/static/partners');
+
+})
